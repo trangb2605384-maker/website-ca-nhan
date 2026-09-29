@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trang cá nhân - Giới thiệu bản thân</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: #1f2937;
+      background: #f5f7fb;
+    }
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      position: relative;
+      overflow: hidden;
+    }
+    header::before, header::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,.12);
+    }
+    header::before { width: 320px; height: 320px; top: -120px; left: -100px; }
+    header::after { width: 420px; height: 420px; bottom: -180px; right: -120px; }
+    .hero { position: relative; z-index: 1; max-width: 850px; }
+    .avatar {
+      width: 150px; height: 150px; border-radius: 50%;
+      margin: 0 auto 24px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(255,255,255,.2);
+      border: 5px solid rgba(255,255,255,.8);
+      font-size: 56px;
+      box-shadow: 0 15px 35px rgba(0,0,0,.2);
+    }
+    h1 { font-size: clamp(38px, 6vw, 64px); margin-bottom: 12px; }
+    .hero p { font-size: 20px; opacity: .95; }
+    .btn {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 13px 25px;
+      border-radius: 30px;
+      background: white;
+      color: #4f46e5;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(255,255,255,.95);
+      box-shadow: 0 3px 15px rgba(0,0,0,.08);
+    }
+    nav ul {
+      max-width: 1100px; margin: auto;
+      display: flex; justify-content: center; flex-wrap: wrap;
+      list-style: none;
+    }
+    nav a {
+      display: block; padding: 15px 17px;
+      text-decoration: none; color: #374151; font-weight: 600;
+    }
+    nav a:hover { color: #4f46e5; }
+    main { max-width: 1100px; margin: auto; padding: 60px 20px; }
+    section { margin-bottom: 55px; scroll-margin-top: 80px; }
+    .section-title {
+      text-align: center; margin-bottom: 28px;
+      color: #1e3a8a; font-size: 32px;
+    }
+    .section-title::after {
+      content: ""; display: block; width: 65px; height: 4px;
+      margin: 10px auto 0; border-radius: 10px;
+      background: #6366f1;
+    }
+    .card {
+      background: white; border-radius: 18px; padding: 28px;
+      box-shadow: 0 8px 25px rgba(31,41,55,.08);
+    }
+    .info-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px;
+    }
+    .info-item {
+      padding: 18px; border-left: 4px solid #6366f1;
+      background: #f8faff; border-radius: 10px;
+    }
+    .info-item strong { display: block; color: #4338ca; margin-bottom: 5px; }
+    .timeline { border-left: 3px solid #818cf8; padding-left: 25px; }
+    .timeline-item { position: relative; margin-bottom: 24px; }
+    .timeline-item::before {
+      content: ""; position: absolute; left: -35px; top: 7px;
+      width: 14px; height: 14px; border-radius: 50%;
+      background: #6366f1; border: 3px solid #e0e7ff;
+    }
+    .timeline-item h3 { color: #3730a3; margin-bottom: 5px; }
+    .skills {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+    }
+    .skill {
+      text-align: center; padding: 25px 15px; background: white;
+      border-radius: 16px; box-shadow: 0 8px 20px rgba(0,0,0,.06);
+    }
+    .skill .icon { font-size: 35px; margin-bottom: 8px; }
+    .hobby-list {
+      display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
+    }
+    .tag {
+      padding: 10px 18px; border-radius: 25px;
+      background: #eef2ff; color: #4338ca; font-weight: 600;
+    }
+    .achievement {
+      display: grid; grid-template-columns: 65px 1fr; gap: 18px;
+      align-items: center; padding: 18px; margin-bottom: 14px;
+      border-radius: 14px; background: white;
+      box-shadow: 0 7px 18px rgba(0,0,0,.06);
+    }
+    .achievement-icon {
+      width: 60px; height: 60px; border-radius: 15px;
+      display: flex; align-items: center; justify-content: center;
+      background: #ede9fe; font-size: 28px;
+    }
+    footer {
+      text-align: center; color: white;
+      background: #111827; padding: 30px 20px;
+    }
+    @media (max-width: 700px) {
+      .info-grid, .skills { grid-template-columns: 1fr; }
+      nav a { padding: 11px 9px; font-size: 14px; }
+      main { padding-top: 40px; }
+    }
+  </style>
+</head>
+<body>
+
+<header id="home">
+  <div class="hero">
+    <div class="avatar">👤</div>
+    <h1>Nguyễn Thành Trạng</h1>
+    <p>Sinh viên | Học tập • Công nghệ • Phát triển bản thân</p>
+    <a class="btn" href="#about">Khám phá trang cá nhân ↓</a>
+  </div>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#about">Thông tin</a></li>
+    <li><a href="#education">Quá trình học</a></li>
+    <li><a href="#career">Chuyên môn</a></li>
+    <li><a href="#experience">Kinh nghiệm</a></li>
+    <li><a href="#hobby">Sở thích</a></li>
+    <li><a href="#achievement">Thành tích</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section id="about">
+    <h2 class="section-title">👋 Giới thiệu bản thân</h2>
+    <div class="card">
+      <div class="info-grid">
+        <div class="info-item"><strong>Họ tên</strong>Nguyễn Thành Trạng</div>
+        <div class="info-item"><strong>Ngày sinh</strong>DD/MM/YYYY</div>
+        <div class="info-item"><strong>Địa chỉ</strong>Điền địa chỉ của bạn</div>
+        <div class="info-item"><strong>Vai trò</strong>Sinh viên</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2 class="section-title">🎓 Quá trình học tập</h2>
+    <div class="card">
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>Hiện tại — Sinh viên</h3>
+          <p>Đang học tập, rèn luyện kỹ năng chuyên môn và kỹ năng số.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>Giai đoạn trước</h3>
+          <p>Điền tên trường/lớp hoặc quá trình học tập trước đây.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>Mục tiêu tương lai</h3>
+          <p>Không ngừng học hỏi, tích lũy kinh nghiệm và phát triển nghề nghiệp.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="career">
+    <h2 class="section-title">💻 Lĩnh vực chuyên môn</h2>
+    <div class="skills">
+      <div class="skill"><div class="icon">💻</div><h3>Công nghệ số</h3><p>Ứng dụng công nghệ trong học tập và công việc.</p></div>
+      <div class="skill"><div class="icon">🌐</div><h3>Thiết kế Web</h3><p>HTML, CSS và xây dựng giao diện web cơ bản.</p></div>
+      <div class="skill"><div class="icon">📊</div><h3>Tin học</h3><p>Word, Excel, PowerPoint và các công cụ số.</p></div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2 class="section-title">🧑‍💼 Kinh nghiệm</h2>
+    <div class="card">
+      <div class="info-grid">
+        <div class="info-item"><strong>Học tập</strong>Thực hiện các bài thực hành và dự án học tập.</div>
+        <div class="info-item"><strong>Làm việc nhóm</strong>Phối hợp với các thành viên để hoàn thành nhiệm vụ.</div>
+        <div class="info-item"><strong>Công cụ số</strong>Sử dụng các phần mềm văn phòng và nền tảng trực tuyến.</div>
+        <div class="info-item"><strong>Dự án</strong>Điền các dự án/bài tập nổi bật của bạn.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="hobby">
+    <h2 class="section-title">❤️ Sở thích</h2>
+    <div class="card">
+      <div class="hobby-list">
+        <span class="tag">🎵 Nghe nhạc</span>
+        <span class="tag">🎮 Giải trí</span>
+        <span class="tag">📚 Học hỏi</span>
+        <span class="tag">💻 Công nghệ</span>
+        <span class="tag">🎬 Xem phim</span>
+        <span class="tag">🏃 Thể thao</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="achievement">
+    <h2 class="section-title">🏆 Thành tích cá nhân</h2>
+    <div class="achievement">
+      <div class="achievement-icon">🥇</div>
+      <div><h3>Thành tích học tập</h3><p>Điền thành tích, giấy khen hoặc kết quả học tập nổi bật.</p></div>
+    </div>
+    <div class="achievement">
+      <div class="achievement-icon">📜</div>
+      <div><h3>Chứng chỉ / hoạt động</h3><p>Điền chứng chỉ, cuộc thi hoặc hoạt động đã tham gia.</p></div>
+    </div>
+    <div class="achievement">
+      <div class="achievement-icon">⭐</div>
+      <div><h3>Dự án nổi bật</h3><p>Điền sản phẩm hoặc dự án cá nhân đáng chú ý.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p><strong>Trang cá nhân của Nguyễn Thành Trạng</strong></p>
+  <p>© 2026 • Thiết kế website giới thiệu bản thân</p>
+</footer>
+
+</body>
+</html>
